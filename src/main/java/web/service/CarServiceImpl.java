@@ -8,7 +8,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@Component
 public class CarServiceImpl implements CarService{
 
     private final List<Car> carList;
@@ -24,7 +23,10 @@ public class CarServiceImpl implements CarService{
 
     @Override
     public List<Car> getCarList(int count) {
-        if (count == 0 || count >= 5) return carList;
-        else return carList.stream().limit(count).toList();
+        if (count == 0 || count >= 5) {
+            return carList;
+        } else {
+            return carList.stream().limit(count).toList();
+        }
     }
 }
